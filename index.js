@@ -21,6 +21,9 @@ async function initServer() {
         res.send("Server opened");
     })
 
+    mongoose.set('useCreateIndex', true);
+    mongoose.set('useFindAndModify', false);
+    
     try {
         await mongoose.connect(process.env.mongodb)
         console.log('Databese connected')
